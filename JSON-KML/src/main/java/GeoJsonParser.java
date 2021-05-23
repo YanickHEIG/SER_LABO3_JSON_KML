@@ -10,9 +10,13 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class GeoJsonParser {
-    private ArrayList<Country> countries = new ArrayList<Country>();
+    private ArrayList<Country> countries;
 
-    public GeoJsonParser(String filePath){
+    public GeoJsonParser(){
+        this.countries = new ArrayList<>();
+    }
+
+    public void parse(String filePath){
         //JSON parser object in order to be able to read file
         JSONParser jsonParser = new JSONParser();
 
@@ -35,6 +39,7 @@ public class GeoJsonParser {
         catch (ParseException e) {
             e.printStackTrace();
         }
+
     }
 
     private void parseFeatureObject(JSONObject feature) {
@@ -74,7 +79,7 @@ public class GeoJsonParser {
         }
     }
 
-    public static String parsePolygon(JSONArray array){
+    private static String parsePolygon(JSONArray array){
         // Get coordinates from polygon array
         JSONArray coordinates = (JSONArray) array.get(0);
         String coordinateAsString = "";

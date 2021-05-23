@@ -8,7 +8,11 @@ import org.jdom2.output.XMLOutputter;
 
 public class KMLWriter {
 
-    public KMLWriter(String outfilePath, ArrayList<Country> countries){
+    public KMLWriter(){
+
+    }
+
+    public void write(String outfilePath, ArrayList<Country> countries){
         // Initialize document and root element, including namespace
         Document doc = new Document();
         Element root = new Element("kml", "http://www.opengis.net/kml/2.2");
@@ -75,7 +79,7 @@ public class KMLWriter {
         }
     }
 
-    public void constructPolygonElement(Element parent, String coords){
+    private void constructPolygonElement(Element parent, String coords){
         // Create polygon element and add it to placemark
         Element polygon = new Element("Polygon");
         parent.addContent(polygon);

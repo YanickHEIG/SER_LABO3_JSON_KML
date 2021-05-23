@@ -6,8 +6,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/GeoJsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GeoJsonParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KMLWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KMLWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GeoJsonParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GeoJsonParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/KMLWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/KMLWriter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sampleKML.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SER_Labo3_Rapport_Maillard_Thomann.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SER_Labo3_Rapport_Maillard_Thomann.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,22 +117,22 @@
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
     <state x="838" y="-1040" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621776210849" />
-    <state width="2517" height="398" key="GridCell.Tab.0.bottom" timestamp="1621782395035">
+    <state width="2517" height="398" key="GridCell.Tab.0.bottom" timestamp="1621787801096">
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2517" height="398" key="GridCell.Tab.0.bottom/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621782395035" />
-    <state width="2517" height="398" key="GridCell.Tab.0.center" timestamp="1621782395034">
+    <state width="2517" height="398" key="GridCell.Tab.0.bottom/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621787801096" />
+    <state width="2517" height="398" key="GridCell.Tab.0.center" timestamp="1621787801095">
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2517" height="398" key="GridCell.Tab.0.center/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621782395034" />
-    <state width="2517" height="398" key="GridCell.Tab.0.left" timestamp="1621782395034">
+    <state width="2517" height="398" key="GridCell.Tab.0.center/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621787801095" />
+    <state width="2517" height="398" key="GridCell.Tab.0.left" timestamp="1621787801095">
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2517" height="398" key="GridCell.Tab.0.left/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621782395034" />
-    <state width="2517" height="398" key="GridCell.Tab.0.right" timestamp="1621782395035">
+    <state width="2517" height="398" key="GridCell.Tab.0.left/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621787801095" />
+    <state width="2517" height="398" key="GridCell.Tab.0.right" timestamp="1621787801095">
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2517" height="398" key="GridCell.Tab.0.right/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621782395035" />
+    <state width="2517" height="398" key="GridCell.Tab.0.right/0.0.1920.1040/-247.-1440.2560.1400@-247.-1440.2560.1400" timestamp="1621787801095" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1621776053329">
       <screen x="-247" y="-1440" width="2560" height="1400" />
     </state>
