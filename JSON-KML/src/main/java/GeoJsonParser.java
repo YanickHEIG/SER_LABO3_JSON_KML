@@ -38,7 +38,7 @@ public class GeoJsonParser {
         }
     }
 
-    private static void parseFeatureObject(JSONObject feature) {
+    public static void parseFeatureObject(JSONObject feature) {
         //System.out.println(feature);
 
         JSONObject properties = (JSONObject) feature.get("properties");
@@ -50,33 +50,37 @@ public class GeoJsonParser {
 
         System.out.println("("+countryISO+") " + countryName );
 
-
         // Get polygon type
         String polygonType = (String) geometry.get("type");
+        // Get coordinates
+        JSONArray coordinatesArray = (JSONArray) geometry.get("coordinates");
+
 
         if (polygonType.equals("Polygon")){
-            JSONArray coordinatesArray = (JSONArray) geometry.get("coordinates");
-            JSONArray coordinates = (JSONArray) coordinatesArray.get(0);
-            // Count and display amount of coordinates
-            System.out.println("\t- "+coordinates.size()+" coordinates");
-
-            // Display coordinates
-            /*
-            for (Object coord : coordinates){
-                System.out.println(coord);
-            }
-            */
+            // Parse the polygon coordinates
+            parsePolygon(coordinatesArray);
         }
 
         if (polygonType.equals("MultiPolygon")){
-            JSONArray coordinatesArray1 = (JSONArray) geometry.get("coordinates");
-            //System.out.println("----"+coordinatesArray1.size());
-            JSONArray coordinatesArray2 = (JSONArray) coordinatesArray1.get(0);
-            //System.out.println("----"+coordinatesArray2.size());
-            JSONArray coordinates = (JSONArray) coordinatesArray2.get(0);
-            //System.out.println("----"+coordinates.size());
-            //System.out.println("\t- "+coordinates.size()+" coordinates");
-            //System.out.println("\t- "+coordinatesArray1.size()+" coordinates");
+            // Parse the multipolygon coordinates sets
+            for (int i = 0; i < coordinatesArray.size(); ++i){
+                JSONArray coordinates = (JSONArray) coordinatesArray.get(i);
+                //System.out.println("\t- "+coordinates.size()+" coordinates");
+                parsePolygon(coordinates);
+            }
         }
+    }
+
+    public static void parsePolygon(JSONArray array){
+        // Get coordinates from polygon array
+        JSONArray coordinates = (JSONArray) array.get(0);
+
+        // Count and display amount of coordinates
+        System.out.println("\t- "+coordinates.size()+" coordinates");
+
+        // Display individual coordinates
+        /*for (Object coord : coordinates){
+            //System.out.println(coord);
+        }*/
     }
 }
