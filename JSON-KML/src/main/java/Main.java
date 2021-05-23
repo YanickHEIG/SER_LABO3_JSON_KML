@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         GeoJsonParser geoJsonParser = new GeoJsonParser("../countries.geojson");
-        
+        KMLWriter kmlWriter = new KMLWriter("../countries.kml", geoJsonParser.getCountries());
     }
 
 }

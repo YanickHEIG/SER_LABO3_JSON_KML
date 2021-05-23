@@ -55,8 +55,7 @@ public class GeoJsonParser {
 
 
         if (polygonType.equals("Polygon")){
-            // Parse the polygon coordinates
-            //parsePolygon(coordinatesArray);
+            // Create country with polygon
             countries.add(new Country(countryName, countryISO, polygonType, parsePolygon(coordinatesArray), null));
         }
 
@@ -70,6 +69,7 @@ public class GeoJsonParser {
                 multipolygonCoordinatesArrayAsString[i] = parsePolygon(coordinates);
 
             }
+            // Create country with multipolygon
             countries.add(new Country(countryName, countryISO, polygonType, null, multipolygonCoordinatesArrayAsString));
         }
     }
@@ -89,36 +89,6 @@ public class GeoJsonParser {
 
         return coordinateAsString;
     }
-
-
-
-     /*public static void main(String[] args) {
-
-        //JSON parser object pour lire le fichier
-        JSONParser jsonParser = new JSONParser();
-
-        try (FileReader reader = new FileReader("../countries.geojson")) {
-
-
-            // lecture du fichier
-            JSONObject obj = (JSONObject) jsonParser.parse(reader);
-            JSONArray features = (JSONArray) obj.get("features");
-            // For each feature, call function
-            features.forEach(feat->parseFeatureObject((JSONObject)feat));
-
-
-        }
-
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public ArrayList<Country> getCountries() {
         return countries;
