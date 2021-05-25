@@ -58,41 +58,52 @@ public class GeoJsonParser {
         // Get coordinates
         JSONArray coordinatesArray = (JSONArray) geometry.get("coordinates");
 
-
+        ArrayList<Polygon> polygons = new ArrayList<>();
         if (polygonType.equals("Polygon")){
-            // Create country with polygon
-            countries.add(new Country(countryName, countryISO, polygonType, parsePolygon(coordinatesArray), null));
+            //for (int i = 0; i < coordinatesArray.size(); i++){
+                polygons.add(parsePolygon((JSONArray) coordinatesArray));
+            //}
+
+            countries.add(new Country(countryName, countryISO, polygonType, polygons));
         }
 
         if (polygonType.equals("MultiPolygon")){
-            // Initialize array for Country creation
-            String[] multipolygonCoordinatesArrayAsString = new String[coordinatesArray.size()];
-            // Parse the multipolygon coordinates sets
-            for (int i = 0; i < coordinatesArray.size(); ++i){
-                JSONArray coordinates = (JSONArray) coordinatesArray.get(i);
-                //parsePolygon(coordinates);
-                multipolygonCoordinatesArrayAsString[i] = parsePolygon(coordinates);
-
+            for (int polygon = 0; polygon < coordinatesArray.size(); polygon++) {
+                JSONArray polygonCoordinates = (JSONArray) coordinatesArray.get(polygon);
+                //for (int i = 0; i < polygonCoordinates.size(); i++){
+                    polygons.add(parsePolygon(polygonCoordinates));
+                //}
             }
-            // Create country with multipolygon
-            countries.add(new Country(countryName, countryISO, polygonType, null, multipolygonCoordinatesArrayAsString));
+            countries.add(new Country(countryName, countryISO, polygonType, polygons));
         }
     }
 
-    private static String parsePolygon(JSONArray array){
-        // Get coordinates from polygon array
-        JSONArray coordinates = (JSONArray) array.get(0);
-        String coordinateAsString = "";
+    private static Polygon parsePolygon(JSONArray polygonCoordinatesArray){
+        Polygon polygon = null;
+        String outerBoundariesAsString = "";
+        String innerBoundariesAsString = "";
+        String[] innerBoundariesAsStringArray = null;
 
-        // Count and display amount of coordinates
-        System.out.println("\t- "+coordinates.size()+" coordinates");
-
-        // Iterate through individual coordinates and create return string
-        for (Object coord : coordinates){
-            coordinateAsString = coordinateAsString + coord.toString().replace("[", "").replace("]", " ");
+        JSONArray outerBoundariesArray =  (JSONArray) polygonCoordinatesArray.get(0);
+        for (Object coord : outerBoundariesArray) {
+            outerBoundariesAsString = outerBoundariesAsString
+                            + coord.toString().replace("[", "").replace("]", "") + ",0\n";
         }
 
-        return coordinateAsString;
+        // If coordinates array is bigger than 1 => polygon has innerbounds
+        if (polygonCoordinatesArray.size() > 1){
+            innerBoundariesAsStringArray = new String[polygonCoordinatesArray.size()];
+            for (int i = 1; i < polygonCoordinatesArray.size(); i++){
+                JSONArray innerBoundariesArray = (JSONArray) polygonCoordinatesArray.get(i);
+                for (Object coord : innerBoundariesArray){
+                    innerBoundariesAsString = innerBoundariesAsString
+                            + coord.toString().replace("[", "").replace("]", "") + ",0\n";
+                }
+                innerBoundariesAsStringArray[i] = innerBoundariesAsString;
+            }
+        }
+
+        return new Polygon(outerBoundariesAsString, innerBoundariesAsStringArray);
     }
 
     public ArrayList<Country> getCountries() {

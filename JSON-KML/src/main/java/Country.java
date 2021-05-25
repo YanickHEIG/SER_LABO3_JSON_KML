@@ -1,18 +1,24 @@
-import org.json.simple.JSONArray;
+
+import java.util.ArrayList;
 
 public class Country {
     private String name;
     private String iso;
     private String polygonType;
-    private String polygonCoordinates;
-    private String[] multiPolygonCoordinates;
+    private ArrayList<Polygon> polygons;
 
-    public Country(String name, String iso, String polygonType, String polygonCoordinates, String[] multiPolygonCoordinates){
+    public ArrayList<Polygon> getPolygons() {
+        return polygons;
+    }
+
+    public Country(String name, String iso, String polygonType, ArrayList<Polygon> polygons){
+        if (polygons != null){
+            this.polygons = new ArrayList<>();
+        }
         this.name = name;
         this.iso = iso;
         this.polygonType = polygonType;
-        this.polygonCoordinates = polygonCoordinates;
-        this.multiPolygonCoordinates = multiPolygonCoordinates;
+        this.polygons = polygons;
     }
 
     public String getName() {
@@ -27,11 +33,9 @@ public class Country {
         return polygonType;
     }
 
-    public String getPolygonCoordinates() {
-        return polygonCoordinates;
+
+    public String toString(){
+        return "(" + iso + ") " + name + " " + polygonType + " "  + polygons.toString();
     }
 
-    public String[] getMultiPolygonCoordinates() {
-        return multiPolygonCoordinates;
-    }
 }
