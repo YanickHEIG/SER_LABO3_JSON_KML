@@ -2,7 +2,12 @@ public class Polygon {
     private String outerBoundary;
     private String[] innerBoundaries;
 
-        public Polygon(String outer, String[] inner){
+    /**
+     * Constructor
+     * @param outer the string containing all coordinates of the outer boundaries
+     * @param inner the string array containing all coordinates of the inner boundaries
+     */
+    public Polygon(String outer, String[] inner){
         this.outerBoundary = outer;
         this.innerBoundaries = inner;
     }
@@ -15,16 +20,5 @@ public class Polygon {
     public String[] getInnerBoundaries() {
         return innerBoundaries;
     }
-
-    public String toString(){
-        //String out =  "Outer: " + outerBoundary + "\n";
-        String out = "";
-        if (innerBoundaries != null)
-            out = out + " inner boundaries : " + innerBoundaries.length;
-
-        return out;
-    }
-
-
 
 }

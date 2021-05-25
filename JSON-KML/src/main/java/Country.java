@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 public class Country {
@@ -7,10 +6,13 @@ public class Country {
     private String polygonType;
     private ArrayList<Polygon> polygons;
 
-    public ArrayList<Polygon> getPolygons() {
-        return polygons;
-    }
-
+    /**
+     * Constructor
+     * @param name the name given to the country
+     * @param iso the ISO_A3 notation of the country
+     * @param polygonType the type of polygon representing the country
+     * @param polygons the polygons representing the country
+     */
     public Country(String name, String iso, String polygonType, ArrayList<Polygon> polygons){
         if (polygons != null){
             this.polygons = new ArrayList<>();
@@ -20,6 +22,7 @@ public class Country {
         this.polygonType = polygonType;
         this.polygons = polygons;
     }
+
 
     public String getName() {
         return name;
@@ -33,9 +36,8 @@ public class Country {
         return polygonType;
     }
 
-
-    public String toString(){
-        return "(" + iso + ") " + name + " " + polygonType + " "  + polygons.toString();
+    public ArrayList<Polygon> getPolygons() {
+        return polygons;
     }
 
 }
